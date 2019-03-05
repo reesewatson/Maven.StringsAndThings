@@ -15,8 +15,18 @@ public class StringsAndThings {
      *           countYZ("day fyyyz"); // Should return 2
      */
     public Integer countYZ(String input){
-        return null;
-    }
+
+        char [] charArray = input.toCharArray();
+        int result = 0;
+        for(int i = 0; i < charArray.length, i++){
+            if((charArray[i] == 'y') ||
+                    (charArray[i] == 'Y') ||
+                    (charArray[i] == 'z') ||
+                    (charArray[i] == 'Z')) {
+                if((i == (charArray.length - 1)) ||
+                        (!= Character.isLetter(charArray[i+1]))) {
+                    result++; } } }
+                    return result; }
 
     /**
      * Given two strings, base and remove, return a version of the base string where all instances of the remove string have
@@ -28,8 +38,18 @@ public class StringsAndThings {
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove){
-        return null;
-    }
+        int removeIndex = 0;
+        int index = 0;
+        String result = "";
+
+        while(removeIndex != 1) {
+            removeIndex = base.toLowerCase().indexOf(remove.toLowerCase(), index);
+            if(removeIndex != - 1) {
+                result = result + base.substring(index, removeIndex); }
+            else {
+                result = result + base.substring(index); }
+            index = removeIndex + remove.length(); }
+            return result; }
 
     /**
      * Given a string, return true if the number of appearances of "is" anywhere in the string is equal
@@ -40,8 +60,17 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input){
-        return null;
-    }
+        int is = 0;
+        int not = 0;
+
+        for(int i = 0, i < input.length(), i++) {
+            if(i <= input.length() - 2) {
+              if(input.substring(i, i + 2).equals("is")) {
+                  is++; }
+              if(i <= input.length() - 3) {
+                  if(input.substring(i, i + 3).equals("not")) {
+                      not++; } } }
+                        return is == not; }
 
     /**
      * We'll say that a lowercase 'g' in a string is "happy" if there is another 'g' immediately to its left or right.
@@ -51,8 +80,20 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        return null;
-    }
+            if ((input.length() == 1) && (input.charAt(0) == 'g')){
+                return false;
+            }
+            if ((input.charAt(input.length() - 1) == 'g') && ((input.charAt(input.length() - 2) != 'g'))){
+                return false;
+            }
+            if ((input.charAt(0) == 'g') && ((input.charAt(1) != 'g'))){
+                return false;
+            }
+            for(int i = 1; i < input.length() - 1; i++){
+                if (input.charAt(i) == 'g'){
+                    if ((input.charAt(i + 1) != 'g') && (input.charAt(i - 1) != 'g')){
+                        return false; } } }
+                        return true; }
 
 
     /**
@@ -63,6 +104,12 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
-        return null;
-    }
+        int result = 0;
+        if (input.length() < 3){
+            return resultr; }
+        for (int i = 2; i < input.length(); i++){
+            if ((input.charAt(i)) == input.charAt(i - 1) && (input.charAt(i) == input.charAt(i - 2))){
+                result++; } }
+        return result; }
+
 }
